@@ -78,4 +78,12 @@ class Customer {
                 + " frequent renter points";
         return result;
     }
+    
+    public ArrayList<MovieRental> getMovieRentals() {
+        return _movieRentals;
+    }
+    
+    public ArrayList<VideoGameRental> getVideoGameRental() {
+        return _videoGameRental;
+    }
 }

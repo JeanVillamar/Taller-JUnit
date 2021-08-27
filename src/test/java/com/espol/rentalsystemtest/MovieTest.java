@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
- * @author Djurado
+ * @author jeanf
  */
 public class MovieTest {
     
@@ -43,10 +43,11 @@ public class MovieTest {
     @Test
     public void testGetPriceCode() {
         System.out.println("getPriceCode");
-        Movie instance = new Movie("Over the moon", Movie.CHILDRENS);
-        int expResult = Movie.CHILDRENS;
+        Movie instance = null;
+        int expResult = 0;
         int result = instance.getPriceCode();
         assertEquals(expResult, result);
+        
     }
 
     /**
@@ -55,24 +56,10 @@ public class MovieTest {
     @Test
     public void testSetPriceCode() {
         System.out.println("setPriceCode");
-        int arg = Movie.NEW_RELEASE;
-        Movie instance = new Movie("Lo que sea", Movie.REGULAR);
+        int arg = 0;
+        Movie instance = null;
         instance.setPriceCode(arg);
-        assertEquals(arg, instance.getPriceCode());
-    }
-    
-    @Test
-    public void testCambiarPrecios() {
-        System.out.println("getPriceCode");
-        Movie instance = new Movie("Over the moon", Movie.CHILDRENS);
-        int expResult = Movie.CHILDRENS;
-        int result = instance.getPriceCode();
-        assertEquals(expResult, result);
-        
-        int arg = Movie.NEW_RELEASE;
-        instance.setPriceCode(arg);
-        assertEquals(arg, instance.getPriceCode());
-        
-    }
-    
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    } 
 }

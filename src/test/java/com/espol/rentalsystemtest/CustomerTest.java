@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 package com.espol.rentalsystemtest;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -17,24 +17,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author jeanf
  */
 public class CustomerTest {
+	 Customer johnDoe  ;
+	 MovieRental rentedm;
+	 VideoGameRental smashrented;
+
     
     public CustomerTest() {
-    }
-
-    @org.junit.jupiter.api.BeforeAll
-    public static void setUpClass() throws Exception {
-    }
-
-    @org.junit.jupiter.api.AfterAll
-    public static void tearDownClass() throws Exception {
-    }
-
-    @org.junit.jupiter.api.BeforeEach
-    public void setUp() throws Exception {
-    }
-
-    @org.junit.jupiter.api.AfterEach
-    public void tearDown() throws Exception {
     }
     
     @BeforeAll
@@ -47,54 +35,49 @@ public class CustomerTest {
     
     @BeforeEach
     public void setUp() {
+    	johnDoe  = new Customer("John Doe");
+    	rentedm = new MovieRental(new Movie("Mulan",Movie.CHILDRENS),2);
+        smashrented = new VideoGameRental(new WiiGame("Super Smash Bros, Brawl"),3,false);
+    	
+    	
     }
     
     @AfterEach
     public void tearDown() {
     }
 
-    
-    //PRUEBAS
     /**
      * Test of addMovieRental method, of class Customer.
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddMovieRental() {
         System.out.println("addMovieRental");
-        MovieRental arg = null;
-        Customer instance = null;
-        instance.addMovieRental(arg);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        johnDoe.addMovieRental(rentedm);
+        assertTrue(johnDoe .getMovieRentals().contains(rentedm));
+        
     }
 
-    
-    
     /**
      * Test of addVideoGameRental method, of class Customer.
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testAddVideoGameRental() {
         System.out.println("addVideoGameRental");
-        VideoGameRental arg = null;
-        Customer instance = null;
-        instance.addVideoGameRental(arg);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        johnDoe .addVideoGameRental(smashrented);
+        assertTrue(johnDoe .getVideoGameRental().contains(smashrented));
     }
 
     /**
      * Test of statement method, of class Customer.
      */
-    @org.junit.jupiter.api.Test
+    @Test
     public void testStatement() {
         System.out.println("statement");
         Customer instance = null;
-        String expResult = "";
+        String expResult = "asd";
         String result = instance.statement();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+
     }
     
 }
