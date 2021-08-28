@@ -1,5 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * 
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -14,12 +14,12 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author JOSE VIVANCO
+ * @author jeanf
  */
 public class MovieRentalTest {
     
-    MovieRental mulanrental;
-    Movie mulan ;
+    MovieRental MovMulanRental;
+    Movie MovieMulan ;
     
     public MovieRentalTest() {
     }
@@ -34,8 +34,8 @@ public class MovieRentalTest {
     
     @Before
     public void setUp() {
-        mulan = new Movie("Mulan", Movie.CHILDRENS);
-        mulanrental = new MovieRental(mulan,4);
+    	MovieMulan = new Movie("Mulan", Movie.CHILDRENS);
+    	MovMulanRental = new MovieRental(MovieMulan,4);
     }
     
     @After
@@ -47,7 +47,7 @@ public class MovieRentalTest {
      */
     @Test
     public void testGetDaysRented() {
-        assertEquals(4,mulanrental.getDaysRented());
+        assertEquals(4,MovMulanRental.getDaysRented());
     }
 
     /**
@@ -55,7 +55,7 @@ public class MovieRentalTest {
      */
     @Test
     public void testGetMovie() {
-        assertEquals(mulan,mulanrental.getMovie());
+        assertEquals(MovieMulan,MovMulanRental.getMovie());
        
     }
     
