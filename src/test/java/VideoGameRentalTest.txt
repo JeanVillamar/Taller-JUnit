@@ -8,9 +8,6 @@ public class VideoGameRentalTest extends TestCase {
     Xbox360Game fable2;
     WiiGame superSmashBrosBrawl;
     
-    
-
-    
     @Before
     public void setUp() {
     	littleBigPlanet = new Ps3Game("Little Big Planet");

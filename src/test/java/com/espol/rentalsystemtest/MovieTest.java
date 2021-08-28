@@ -10,8 +10,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -19,9 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author jeanf
  */
 public class MovieTest {
-	
-	Movie theManWKTM, Mulan, slumdogM;
-	
+    
     public MovieTest() {
     }
     
@@ -34,10 +30,7 @@ public class MovieTest {
     }
     
     @BeforeEach
-    public void setUp(){
-        theManWKTM = new Movie("The Man Who Knew Too Much", Movie.REGULAR);
-        Mulan = new Movie("Mulan", Movie.CHILDRENS);
-        slumdogM = new Movie("Slumdog Millionaire", Movie.NEW_RELEASE);
+    public void setUp() {
     }
     
     @AfterEach
@@ -49,9 +42,12 @@ public class MovieTest {
      */
     @Test
     public void testGetPriceCode() {
-        assertEquals(Movie.CHILDRENS, Mulan.getPriceCode());				//children
-        assertEquals(Movie.REGULAR, theManWKTM.getPriceCode());				//regular
-        assertEquals(Movie.NEW_RELEASE, slumdogM.getPriceCode());			//new release
+        System.out.println("getPriceCode");
+        Movie instance = null;
+        int expResult = 0;
+        int result = instance.getPriceCode();
+        assertEquals(expResult, result);
+        
     }
 
     /**
@@ -59,11 +55,11 @@ public class MovieTest {
      */
     @Test
     public void testSetPriceCode() {
-    	Mulan.setPriceCode(1);
-        assertEquals(1,Mulan.getPriceCode());  //children
-        theManWKTM.setPriceCode(2);
-        assertEquals(2,theManWKTM.getPriceCode());  //regular
-        slumdogM.setPriceCode(0);
-        assertEquals(0,slumdogM.getPriceCode());    //new release
+        System.out.println("setPriceCode");
+        int arg = 0;
+        Movie instance = null;
+        instance.setPriceCode(arg);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     } 
 }
