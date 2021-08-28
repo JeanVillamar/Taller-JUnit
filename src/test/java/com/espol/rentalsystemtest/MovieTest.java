@@ -17,37 +17,30 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author jeanf
  */
 public class MovieTest {
-    
+
+	Movie theManWKTM, Mulan, slumdogM;
+
     public MovieTest() {
     }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
+
+	public static void tearDownClass() {
     }
 
-    /**
-     * Test of getPriceCode method, of class Movie.
-     */
+    @BeforeEach
+    public void setUp(){
+        theManWKTM = new Movie("The Man Who Knew Too Much", Movie.REGULAR);
+        Mulan = new Movie("Mulan", Movie.CHILDRENS);
+        slumdogM = new Movie("Slumdog Millionaire", Movie.NEW_RELEASE);
+    }
+
+    @AfterEach
+	public void tearDown() {}
+    
     @Test
     public void testGetPriceCode() {
-        System.out.println("getPriceCode");
-        Movie instance = null;
-        int expResult = 0;
-        int result = instance.getPriceCode();
-        assertEquals(expResult, result);
-        
+        assertEquals(Movie.CHILDRENS, Mulan.getPriceCode());				//children
+        assertEquals(Movie.REGULAR, theManWKTM.getPriceCode());				//regular
+        assertEquals(Movie.NEW_RELEASE, slumdogM.getPriceCode());			//new release
     }
 
     /**
@@ -55,11 +48,11 @@ public class MovieTest {
      */
     @Test
     public void testSetPriceCode() {
-        System.out.println("setPriceCode");
-        int arg = 0;
-        Movie instance = null;
-        instance.setPriceCode(arg);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    	Mulan.setPriceCode(1);
+        assertEquals(1,Mulan.getPriceCode());  //children
+        theManWKTM.setPriceCode(2);
+        assertEquals(2,theManWKTM.getPriceCode());  //regular
+        slumdogM.setPriceCode(0);
+        assertEquals(0,slumdogM.getPriceCode());    //new release
     } 
 }

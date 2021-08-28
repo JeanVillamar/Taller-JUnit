@@ -12,6 +12,10 @@ class Customer {
         this._movieRentals = new ArrayList<>();
         _name = name;
     }
+    
+    public String getName() {
+        return _name;
+    }
 
     public void addMovieRental(MovieRental arg) {
         _movieRentals.add(arg);

@@ -9,6 +9,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -70,14 +72,81 @@ public class CustomerTest {
     /**
      * Test of statement method, of class Customer.
      */
+    
     @Test
-    public void testStatement() {
-        System.out.println("statement");
-        Customer instance = null;
-        String expResult = "asd";
-        String result = instance.statement();
-        assertEquals(expResult, result);
+    public void testStatementNewReleaseOnly() {
+        System.out.println("StatementNewReleaseOnly");
+        Movie spidermanNWH = new Movie("Spiderman: No Way Home", Movie.NEW_RELEASE);
+        MovieRental spidermanRental = new MovieRental(spidermanNWH,3);
+        johnDoe.addMovieRental(spidermanRental);
+        
 
+        String expResult = "Rental Record for " + johnDoe.getName() + "\n";
+        
+        double amount = 0;
+        amount +=spidermanRental.getDaysRented()*3;
+        expResult += "\t" + spidermanRental.getMovie()._title+ "\t"+ String.valueOf(amount) + "\n";
+        expResult += "Amount owed is " + String.valueOf(amount) + "\n";
+        
+        int frequentRenterPoints = 0;
+        frequentRenterPoints++;
+        frequentRenterPoints++;
+        expResult += "You earned " + String.valueOf(frequentRenterPoints)+ " frequent renter points";
+            
+        String result = johnDoe.statement();
+        assertEquals(expResult, result);
     }
+    
+    
+    @Test
+    public void testStatementRegularMovieOnly() {
+        System.out.println("StatementRegularMovieOnly");
+        Movie Titanic= new Movie("Titanic", Movie.REGULAR);
+        MovieRental titanicRental = new MovieRental(Titanic,3);
+        johnDoe.addMovieRental(titanicRental);
+        
+
+        double amount = 0;
+        amount+=2;
+        amount+=(titanicRental.getDaysRented()-2)*1.5;
+        int frequentRenterPoints = 0;
+        frequentRenterPoints++;
+        
+        
+        String expResult = "Rental Record for " + johnDoe.getName() + "\n";
+        expResult += "\t" + titanicRental.getMovie()._title+ "\t"+ String.valueOf(amount) + "\n";
+        expResult += "Amount owed is " + String.valueOf(amount) + "\n";
+        expResult += "You earned " + String.valueOf(frequentRenterPoints)+ " frequent renter points";
+            
+        String result = johnDoe.statement();
+        assertEquals(expResult, result);
+    }
+    
+    
+    @Test
+    public void testChildrenMovieStatementMoreThan3() {
+        System.out.println("ChildrenMovieStatementMoreThan3");
+        
+        MovieRental mulanrented10 = new MovieRental(new Movie("Mulan",Movie.CHILDRENS),10);
+        johnDoe.addMovieRental(mulanrented10);
+        
+        
+
+        int frequentRenterPoints = 1;
+        
+        
+        String expResult = "Rental Record for " + johnDoe.getName() + "\n";
+        double amount = 1.5;
+        amount += (mulanrented10.getDaysRented()-3)*1.25;
+        
+        expResult += "\t" + mulanrented10.getMovie()._title+ "\t"+ String.valueOf(amount) + "\n";
+        expResult += "Amount owed is " + String.valueOf(amount) + "\n";
+        expResult += "You earned " + String.valueOf(frequentRenterPoints)+ " frequent renter points";
+            
+        String result = johnDoe.statement();    
+        assertEquals(expResult, result);
+    }
+    
+    
     
 }
