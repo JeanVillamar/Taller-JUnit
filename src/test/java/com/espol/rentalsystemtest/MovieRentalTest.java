@@ -10,6 +10,8 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+
 import static org.junit.Assert.*;
 
 /**
@@ -21,11 +23,13 @@ public class MovieRentalTest {
     MovieRental MovMulanRental;
     Movie MovieMulan ;
     
+    
     public MovieRentalTest() {
     }
     
     @BeforeClass
     public static void setUpClass() {
+    	
     }
     
     @AfterClass
